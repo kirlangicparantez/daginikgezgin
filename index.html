@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OYUN ADI — Resmi Tanıtım Sitesi</title>
+  <meta name="description" content="OYUN ADI: mobil için eğlenceli ve öğretici bir deneyim. Özellikler, ekran görüntüleri, indirme bağlantıları ve sık sorulan sorular." />
+
+  <!-- Open Graph / Twitter Cards -->
+  <meta property="og:title" content="OYUN ADI — Resmi Tanıtım Sitesi" />
+  <meta property="og:description" content="OYUN ADI: mobil için eğlenceli ve öğretici bir deneyim." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./images/og-cover.jpg" />
+  <meta property="og:url" content="https://KULLANICIADIN.github.io/REPO-ADI/" />
+
+  <style>
+    :root {
+      --bg: #0f1226;
+      --bg-soft: #14173a;
+      --card: #191d4d;
+      --text: #e9ebff;
+      --muted: #b9bdf2;
+      --accent: #7cc644; /* senin sevdiğin yeşile yakın */
+      --accent-2: #bfdc80;
+      --shadow: rgba(0,0,0,.35);
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      color: var(--text); background: radial-gradient(1200px 800px at 80% -10%, #1b1f52 0%, #0f1226 60%);
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    header.nav { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(10px); background: rgba(15,18,38,.55); border-bottom: 1px solid rgba(255,255,255,.08); }
+    .nav-inner { display:flex; align-items:center; justify-content: space-between; gap:16px; }
+    .brand { display:flex; align-items:center; gap:12px; font-weight: 700; letter-spacing:.3px; }
+    .brand img { width: 32px; height: 32px; border-radius: 8px; box-shadow: 0 6px 20px var(--shadow); }
+    .nav-links { display:flex; gap:16px; font-weight:600; color: var(--muted); }
+    .btn { display:inline-block; padding:12px 18px; border-radius: 999px; border:1px solid rgba(255,255,255,.15); box-shadow: 0 8px 30px var(--shadow); }
+    .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent-2)); color:#0d1a0d; font-weight:800; border: none; }
+    .btn.ghost { color: var(--text); }
+
+    /* Hero */
+    .hero { padding: 72px 0 32px; }
+    .hero-grid { display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 24px; align-items:center; }
+    .title { font-size: clamp(28px, 5vw, 56px); line-height: 1.05; margin:0 0 12px; letter-spacing:.2px; }
+    .subtitle { color: var(--muted); font-size: clamp(15px, 2.3vw, 18px); margin:0 0 20px; }
+    .actions { display:flex; gap:12px; flex-wrap:wrap; }
+    .device-card { background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); padding: 14px; border-radius: 22px; border:1px solid rgba(255,255,255,.08); box-shadow: 0 20px 60px var(--shadow); }
+    .device-card img { width: 100%; border-radius: 16px; display:block; }
+
+    /* Features */
+    section { padding: 56px 0; }
+    .section-title { font-size: 28px; margin: 0 0 12px; }
+    .section-note { color: var(--muted); margin:0 0 24px; }
+    .features { display:grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius: 18px; padding: 18px; box-shadow: 0 16px 40px var(--shadow); }
+    .card h3 { margin:0 0 8px; font-size: 18px; }
+    .card p { margin:0; color: var(--muted); }
+
+    /* Gallery */
+    .gallery { display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .gallery img { width:100%; height: 220px; object-fit: cover; border-radius: 14px; border:1px solid rgba(255,255,255,.1); }
+
+    /* Download */
+    .download-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .download-card { display:flex; align-items:center; justify-content: space-between; gap: 16px; padding:16px; border-radius: 16px; border:1px dashed rgba(255,255,255,.18); background: rgba(255,255,255,.03); }
+    .download-card p { margin:0; color: var(--muted); }
+
+    /* FAQ */
+    .faq { display:grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    details { background: rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); border-radius: 14px; padding: 14px 16px; }
+    details > summary { cursor: pointer; font-weight: 700; }
+    details p { color: var(--muted); }
+
+    /* Footer */
+    footer { padding: 40px 0 60px; color: var(--muted); border-top: 1px solid rgba(255,255,255,.08); background: linear-gradient(180deg, transparent, rgba(0,0,0,.25)); }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .features { grid-template-columns: 1fr 1fr; }
+      .gallery { grid-template-columns: 1fr 1fr; }
+      .faq { grid-template-columns: 1fr; }
+      .download-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .features, .gallery { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#" class="brand">
+        <img src="./images/icon-64.png" alt="OYUN ADI ikon" />
+        <span>OYUN ADI</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#ozellikler">Özellikler</a>
+        <a href="#ekran-goruntuleri">Ekran Görüntüleri</a>
+        <a href="#indir">İndir</a>
+        <a href="#sss">SSS</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1 class="title">OYUN ADI — <span style="color:var(--accent)">Eğlenceli</span> ve <span style="color:var(--accent-2)">Öğretici</span> Mobil Macera</h1>
+        <p class="subtitle">Kısa bir açıklama: hedef yaş grubu, oyun türü, 1–2 cümlede değer önerisi. Örn: “5–7 yaş için sürükle-bırak görevler ve dünya şehirleri ile keşfetme.”</p>
+        <div class="actions">
+          <a class="btn primary" href="#indir">Hemen İndir (APK)</a>
+          <a class="btn ghost" href="https://youtu.be/VIDEO-ID" target="_blank" rel="noopener">Fragmanı İzle</a>
+        </div>
+      </div>
+      <div class="device-card">
+        <!-- Uygulama ekranı mockup (kendi ekran görüntünü koy) -->
+        <img src="./images/screen-hero.jpg" alt="OYUN ADI ekran görüntüsü" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="ozellikler">
+    <div class="container">
+      <h2 class="section-title">Öne Çıkan Özellikler</h2>
+      <p class="section-note">Kısa ve net maddelerle güçlü yanlarını vurgula.</p>
+      <div class="features">
+        <div class="card">
+          <h3>🔊 Sesli Görevler</h3>
+          <p>Çocuklar için anlaşılır seslendirme ve yönergeler.</p>
+        </div>
+        <div class="card">
+          <h3>🧩 Sürükle-Bırak Mekanik</h3>
+          <p>Basit ama tatmin edici etkileşimler ve geri bildirimler.</p>
+        </div>
+        <div class="card">
+          <h3>🌍 Şehir Temaları</h3>
+          <p>İstanbul, Paris, Tokyo gibi temalı sahneler ve görevler.</p>
+        </div>
+        <div class="card">
+          <h3>👪 Ebeveyn Dostu</h3>
+          <p>Reklamsız deneyim, veri minimizasyonu ve basit arayüz.</p>
+        </div>
+        <div class="card">
+          <h3>⚡ Hızlı & Hafif</h3>
+          <p>Düşük donanımlarda sorunsuz çalışma.</p>
+        </div>
+        <div class="card">
+          <h3>🛠️ Sürekli Güncelleme</h3>
+          <p>Yeni görevler ve düzeltmeler düzenli olarak eklenir.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="ekran-goruntuleri">
+    <div class="container">
+      <h2 class="section-title">Ekran Görüntüleri</h2>
+      <p class="section-note">Gerçek oyun içi görüntülerini buraya ekle.</p>
+      <div class="gallery">
+        <img src="./images/screen-1.jpg" alt="Görev 1" />
+        <img src="./images/screen-2.jpg" alt="Görev 2" />
+        <img src="./images/screen-3.jpg" alt="Görev 3" />
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section id="indir">
+    <div class="container">
+      <h2 class="section-title">İndir & Oyna</h2>
+      <p class="section-note">Google Play yayını yoksa APK bağlantısı ekle. iOS için TestFlight / mağaza bağlantısı gerekli.</p>
+      <div class="download-grid">
+        <div class="download-card">
+          <div>
+            <strong>Android (APK)</strong>
+            <p>Doğrudan indirme bağlantısı (GitHub Releases önerilir).</p>
+          </div>
+          <a class="btn primary" href="https://github.com/KULLANICIADIN/REPO-ADI/releases" target="_blank" rel="noopener">İndir</a>
+        </div>
+        <div class="download-card">
+          <div>
+            <strong>Google Play</strong>
+            <p>Yayınlandıysa mağaza sayfasını bağla.</p>
+          </div>
+          <a class="btn ghost" href="https://play.google.com/store/apps/details?id=PAKET.ADI" target="_blank" rel="noopener">Mağaza Sayfası</a>
+        </div>
+      </div>
+      <p style="margin-top:12px;color:var(--muted)">APK güvenliği için SHA-256 kontrol özeti ve sürüm notlarını her yayında paylaş.</p>
+    </div>
+  </section>
+
+  <!-- HOW TO / ABOUT -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Nasıl Oynanır?</h2>
+      <div class="card">
+        <p>1) Görev butonuna dokun ve sesli yönergeyi dinle. 2) Eşyaları sürükleyip doğru bölgeye bırak. 3) Görevi tamamlayınca yıldız kazan. 4) Albümde ilerlemeni gör.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="sss">
+    <div class="container">
+      <h2 class="section-title">Sık Sorulan Sorular</h2>
+      <div class="faq">
+        <details>
+          <summary>Uygulama hangi yaş grubu için uygun?</summary>
+          <p>Genel olarak 5–7 yaş arası için tasarlandı; ebeveyn gözetimiyle daha küçük yaşlar da deneyebilir.</p>
+        </details>
+        <details>
+          <summary>Uygulama veri topluyor mu?</summary>
+          <p>Yalnızca zorunlu çökme/performans metrikleri (varsa) anonim olarak toplanır. Reklam yoktur.</p>
+        </details>
+        <details>
+          <summary>İndirme güvenli mi?</summary>
+          <p>APK dosyalarını GitHub Releases’ta imzalı olarak paylaşıyoruz; sürüm notları ve SHA-256 özeti eklenir.</p>
+        </details>
+        <details>
+          <summary>Geri bildirim nasıl iletilir?</summary>
+          <p>Hata/öneri için <a href="#iletisim">iletişim</a> bölümündeki e-posta adresine yazabilirsiniz.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / LEGAL -->
+  <section id="iletisim">
+    <div class="container">
+      <h2 class="section-title">İletişim</h2>
+      <div class="card">
+        <p>E‑posta: <a href="mailto:destek@alanadiniz.com">destek@alanadiniz.com</a></p>
+        <p>Gizlilik Politikası: <a href="./privacy.html">privacy.html</a> (ayrı bir sayfa olarak ekleyebilirsin)</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+      <small>© <span id="yil"></span> OYUN ADI</small>
+      <small><a href="https://github.com/KULLANICIADIN/REPO-ADI" target="_blank" rel="noopener">Kaynak Kodu / Releases</a></small>
+    </div>
+  </footer>
+
+  <script>
+    // Yıl
+    document.getElementById('yil').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
